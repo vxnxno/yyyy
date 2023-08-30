@@ -1,0 +1,63 @@
+<ion-header translucent="true">
+  <ion-toolbar> 
+    <ion-buttons slot="end">
+    <ion-back-button default-href="#" routerLink="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      SkeletonApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="home-section ion-padding">
+    <div class="heading ion-padding">
+      <h1> Bienvenido/a</h1>
+      <p> Usuario/a {{usuario}}</p>
+      <h1> Su información</h1>
+    </div>
+    <div class="home-form ion-padding center">
+      <div class="form-input">
+          <ion-list>
+            <ion-item>
+              <ion-input label="Nombre" [(ngModel)]="nombre" placeholder="Ingrese su nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input label="Apellido" [(ngModel)]="apellido" placeholder="Ingrese su apellido"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-select label="Nivel Educacional" placeholder="Seleccione Nivel" [multiple]="true" >
+                <ion-select-option value="bsc">Enseñanza Básica</ion-select-option>
+                <ion-select-option value="med">Enseñanza Media</ion-select-option>
+                <ion-select-option value="sup">Enseñanza Superior</ion-select-option>
+                <ion-select-option value="pg">PostGrado</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label> Fecha de nacimiento</ion-label>
+              <ion-datetime-button datetime="datetime"></ion-datetime-button>
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-datetime presentation="date" id="datetime"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+            </ion-item>
+
+          </ion-list>
+      </div>
+    </div>    
+    <div class="action-button ion-padding">
+      <ion-button size="small" class="clean-button" slot="end" (click)="limpiar()" (click)="ejecutarAnimacion()">Limpiar</ion-button>
+      <ion-button size="small" class="show-button" id="present-alert" (click)="mostrar()">Mostrar</ion-button>
+    </div>
+    
+  </div>
+
+
+</ion-content>
+
+<ion-footer class="ion-padding center" >
+  <ion-toolbar color="white">
+    <h6>Desarrollada por Millaray Ibarra</h6>
+  </ion-toolbar>
+</ion-footer>

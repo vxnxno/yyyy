@@ -1,0 +1,41 @@
+
+<ion-content>
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1> SkeletonApp</h1>
+      <p> Login</p>
+    </div>
+    <div class="login-form ion-padding center">
+      <div class="form-input">
+        <ion-item>
+          <ion-label position="floating"> Nombre de usuario</ion-label>
+          <ion-input type="user" minlength="3" maxlength="8"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" type="password" [counter]="true" labelPlacement="floating"
+          minlength="4" maxlength="4" pattern="[0-9]*" ngModel #contrasenia="ngModel" 
+          errorText="Ingrese una contraseña válida" helperText="Ingrese contraseña" required></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="action-button ion-padding">
+      <ion-button size="small" class="login-button" routerLink="/home"> Ingresar</ion-button>
+      <p></p>
+    </div>
+  </div> 
+ 
+</ion-content>
+
+
+
+<ion-footer class="ion-padding center">
+  <ion-toolbar>
+    <h6>Desarrollada por Millaray Ibarra</h6>
+  </ion-toolbar>
+</ion-footer>
+
+
+
