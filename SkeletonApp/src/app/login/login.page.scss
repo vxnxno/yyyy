@@ -1,0 +1,70 @@
+ion-content{
+  --background: #008b8b;
+  h1{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .action-button{
+    text-align: center;
+    .show-button{
+        --background: #008b8b;
+        color: #141414;
+        font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+    }
+    .clean-button{
+        --background: #008b8b;
+        color: #141414;
+        font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+  }
+}
+
+@keyframes MoverAlCentro {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translateX(50%);
+  }
+  }
+
+@keyframes MoverAlCentro {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translateX(-50%);
+  }
+  }
+.title-animation {
+  animation: MoverAlCentro 2.5s infinite alternate, slideToCenter 2.5s infinite alternate;
+  text-align: center;
+  font-weight: bold;
+}
+
+//.ion-color-darkcyan {
+  //--ion-color-base: var(--ion-color-darkcyan);
+  //--ion-color-base-rgb: var(--ion-color-darkcyan-rgb);
+  //--ion-color-contrast: var(--ion-color-darkcyan-contrast);
+  //--ion-color-contrast-rgb: var(--ion-color-darkcyan-contrast-rgb);
+  //--ion-color-shade: var(--ion-color-darkcyan-shade);
+  //--ion-color-tint: var(--ion-color-darkcyan-tint);
+//}
+
+ion-datetime {
+  --background: #000000;
+  --background-rgb: 255, 241, 242;
+  color: #008b8b;
+
+  border-radius: 16px;
+  box-shadow: rgba(var(--ion-color-darkcyan-rgb), 0.3) 0px 10px 15px -3px;
+}
+
+

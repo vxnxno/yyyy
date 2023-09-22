@@ -1,0 +1,175 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Informaciones
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button href="#" routerLink="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment value="Informacion Adicional" scrollable="true" [(ngModel)]="segmentModel"
+      (ionChange)="segmentChanged($event)">
+
+      <ion-segment-button value="Informacion Adicional">
+        <ion-label>Informacion Adicional</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Experiencia Laboral">
+        <ion-label>Experiencia Laboral</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Certificaciones">
+        <ion-label>Certificaciones</ion-label>
+      </ion-segment-button>
+
+
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+    <ion-card *ngIf="segmentModel === 'Informacion Adicional'">
+      <ion-card-content>
+            <h1 class="title-animation"> Bienvenido!</h1>
+            <p class="ion-text-start ion-margin"> Usuario: {{usuario}}</p>
+          <ion-item>
+            <h1> Informacion Adicional</h1>
+          </ion-item>
+
+                <ion-item>
+                  <ion-input label="Nombre" placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input label="Apellido" placeholder="Ingrese su apellido" [(ngModel)]="apellido"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-select label="Nivel Educacional" placeholder="Seleccione Nivel" [multiple]="true"
+                    [(ngModel)]="nivelEducacional">
+                    <ion-select-option value="bsc">Enseñanza Básica</ion-select-option>
+                    <ion-select-option value="med">Enseñanza Media</ion-select-option>
+                    <ion-select-option value="sup">Enseñanza Superior</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item>
+                  <mat-form-field>
+                    <mat-label>MM/DD/YYYY</mat-label>
+                    <input #fechaNacimiento matInput [matDatepicker]="picker">
+                    <mat-hint>Fecha de nacimiento</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                </ion-item>
+          <ion-item>
+            <div class="action-button ion-padding">
+              <ion-button size="medium" class="clean-button" slot="end" (click)="limpiar()"
+                (click)="ejecutarAnimacion()">Limpiar</ion-button>
+              <ion-button size="medium" class="show-button" id="present-alert" (click)="mostrar()">Mostrar</ion-button>
+
+            </div>
+          </ion-item>
+
+
+
+
+
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="segmentModel === 'Experiencia Laboral'">
+      <ion-card-header>
+        <ion-card-title>Experiencia Laboral</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-item>
+          <ion-input label="Empresa" placeholder="Ej: IBM"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Año Inicio</ion-label>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime presentation="date" id="datetime" [showDefaultButtons]="true"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox labelPlacement="start"> Trabaja actualmente en esa empresa </ion-checkbox>
+        </ion-item>
+
+
+
+        <ion-item>
+          <ion-label>Año Termino (Completar solo si ya no trabaja ahí)</ion-label>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime presentation="date" id="datetime" [showDefaultButtons]="true"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Cargo" placeholder="Ej: Jefe de Proyecto"></ion-input>
+        </ion-item>
+      </ion-card-content>
+      <div class="action-button ion-padding">
+        <ion-button size="medium" (click)="guardar()">Guardar</ion-button>
+      </div>
+    </ion-card>
+    <ion-item>
+  </ion-item>
+    
+
+
+    <ion-card *ngIf="segmentModel === 'Certificaciones'">
+      <ion-card-header>
+        <ion-card-title>Certificaciones</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-item>
+          <ion-input label="Nombre del certificado" placeholder="Ej: Hacker ético certificado (CEH)"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Fecha de obtencion</ion-label>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime presentation="date" id="datetime" [showDefaultButtons]="true"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+
+        <ion-item>
+          <ion-select label="¿Su certificado está vencido?" placeholder="Seleccione una respuesta" [multiple]="true"
+            [(ngModel)]="vencimientoCer">
+            <ion-select-option value="si">Sí</ion-select-option>
+            <ion-select-option value="no">No</ion-select-option>
+           </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Fecha de vencimiento (En caso de no estar vigente)</ion-label>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime presentation="date" id="datetime" [showDefaultButtons]="true"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+        <div class="action-button ion-padding">
+          <ion-button size="medium" (click)="guardar()">Guardar</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
